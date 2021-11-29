@@ -9,15 +9,12 @@ Color blackColor = const Color(0xff000000);
 Color whiteColor = const Color(0xffFFFFFF);
 
 TextStyle blackTextStyle = GoogleFonts.poppins(
-  fontWeight: semiBold,
   color: blackColor,
 );
 TextStyle greyTextStyle = GoogleFonts.poppins(
-  fontWeight: medium,
   color: greyColor,
 );
 TextStyle whiteTextStyle = GoogleFonts.poppins(
-  fontWeight: semiBold,
   color: whiteColor,
 );
 
