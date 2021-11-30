@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:laporku/provider/textfield_provider.dart';
 import 'package:laporku/ui/screen/sign_up_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   // NOTE: keep the app portrait up
@@ -14,9 +16,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SignUpPage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => TextFieldProvider(),
+        )
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SignUpPage(),
+      ),
     );
   }
 }

@@ -4,7 +4,6 @@ import 'package:laporku/ui/widgets/text_field_custom_widget.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,30 +12,49 @@ class SignUpPage extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(
               top: 30,
-              left: defaultRadius,
-              right: defaultRadius,
+              left: defaultMargin,
+              right: defaultMargin,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // NOTE : LOGO SIGN UP
                 _logoWidget(),
                 const SizedBox(
                   height: 30,
                 ),
-                Text(
-                  "Daftar Akun",
-                  style: blackTextStyle.copyWith(
-                    fontSize: 20,
-                    fontWeight: semiBold,
-                  ),
+                // NOTE : TEXTFIELD SIGN UP
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Daftar Akun",
+                      style: blackTextStyle.copyWith(
+                        fontSize: 20,
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    const TextFieldCustomWidget(
+                      textName: "Full Name",
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    const TextFieldCustomWidget(
+                      textName: "Email Adress",
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    const TextFieldCustomWidget(
+                      textName: "Password",
+                      isPassword: true,
+                    ),
+                  ],
                 ),
-                const SizedBox(
-                  height: 30,
-                ),
-                const TextFieldCustomWidget(
-                  textName: "Full Name",
-                  isPassword: false,
-                )
               ],
             ),
           ),
