@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:laporku/provider/textfield_provider.dart';
-import 'package:laporku/ui/screen/sign_up_page.dart';
+import 'package:laporku/ui/page/first_page.dart';
+import 'package:laporku/ui/page/home_page.dart';
+import 'package:laporku/ui/page/sign_in_page.dart';
+import 'package:laporku/ui/page/sign_up_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -22,9 +25,15 @@ class MyApp extends StatelessWidget {
           create: (context) => TextFieldProvider(),
         )
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SignUpPage(),
+        initialRoute: FirstPage.routeName,
+        routes: {
+          FirstPage.routeName: (context) => const FirstPage(),
+          SignInPage.routeName: (context) => const SignInPage(),
+          SignUpPage.routeName: (context) => const SignUpPage(),
+          HomePage.routeName: (context) => const HomePage(),
+        },
       ),
     );
   }

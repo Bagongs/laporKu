@@ -4,6 +4,8 @@ import 'package:laporku/ui/widgets/text_field_custom_widget.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
+  static const routeName = "/sign_up_page";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,12 +20,12 @@ class SignUpPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // NOTE : LOGO SIGN UP
+                // NOTE : LOGO
                 _logoWidget(),
                 const SizedBox(
                   height: 30,
                 ),
-                // NOTE : TEXTFIELD SIGN UP
+                // NOTE : TEXTFIELD
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:laporku/common/theme.dart';
+import 'package:laporku/ui/page/home_page.dart';
 import 'package:laporku/ui/widgets/logo_widget.dart';
 import 'package:laporku/ui/widgets/text_field_custom_widget.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
+  static const routeName = "/sign_in_page";
 
   @override
   _SignInPageState createState() => _SignInPageState();
@@ -27,8 +29,8 @@ class _SignInPageState extends State<SignInPage> {
           child: Padding(
             padding: EdgeInsets.only(
               top: 30,
-              left: defaultRadius,
-              right: defaultRadius,
+              left: defaultMargin,
+              right: defaultMargin,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +73,9 @@ class _SignInPageState extends State<SignInPage> {
                         style: ElevatedButton.styleFrom(
                           primary: blueColor,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, HomePage.routeName);
+                        },
                         child: const Text("Sign In"),
                       ),
                     ),
