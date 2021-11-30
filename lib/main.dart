@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:laporku/ui/screen/sign_up_page.dart';
+import 'package:laporku/ui/page/sign_in_page.dart';
+import 'package:laporku/ui/page/sign_up_page.dart';
 
 void main() {
   // NOTE: keep the app portrait up
@@ -14,9 +15,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUpPage(),
+      home: SignInPage(),
     );
   }
 }

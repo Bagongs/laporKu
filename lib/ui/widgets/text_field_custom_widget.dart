@@ -4,6 +4,7 @@ import 'package:laporku/common/theme.dart';
 class TextFieldCustomWidget extends StatelessWidget {
   final String textName;
   final bool isPassword;
+
   const TextFieldCustomWidget({
     Key? key,
     required this.textName,
@@ -32,7 +33,7 @@ class TextFieldCustomWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(18),
             ),
             suffixIcon: Icon(
-              isPassword ? Icons.visibility_off : Icons.visibility,
+              isPassword ? Icons.visibility : null,
             ),
           ),
         )
