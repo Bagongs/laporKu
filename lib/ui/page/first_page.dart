@@ -14,14 +14,14 @@ class FirstPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                image: new AssetImage("assets/background.png"),
+                image: AssetImage("assets/background.png"),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          Positioned(top: 30, left: 24, child: logoWidget(167, 101)),
+          Positioned(top: 30, left: 24, child: logoWidget(167, 101, "logo")),
           Positioned(
             top: 139,
             left: 30,
@@ -33,26 +33,29 @@ class FirstPage extends StatelessWidget {
               ),
             ),
           ),
-          Align(
-            alignment: const Alignment(0.1, 0.7),
-            child: SizedBox(
-              width: 350,
-              height: 55.0,
-              child: Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(18.0),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: yellowColor,
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, SignInPage.routeName);
-                    },
-                    child: Text(
-                      "Get Started",
-                      style: whiteTextStyle.copyWith(
-                        fontWeight: semiBold,
-                        fontSize: 18,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+            child: Align(
+              alignment: const Alignment(0.1, 0.7),
+              child: SizedBox(
+                width: 350,
+                height: 55.0,
+                child: Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(defaultRadius),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: yellowColor,
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, SignInPage.routeName);
+                      },
+                      child: Text(
+                        "Get Started",
+                        style: whiteTextStyle.copyWith(
+                          fontWeight: semiBold,
+                          fontSize: 18,
+                        ),
                       ),
                     ),
                   ),

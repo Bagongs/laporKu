@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
                               Text("Azizah"),
                             ],
                           ),
-                          Text("April")
+                          const Text("April")
                         ],
                       ),
                       Row(

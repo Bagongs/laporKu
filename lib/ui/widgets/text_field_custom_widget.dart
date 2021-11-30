@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laporku/common/theme.dart';
+import 'package:get/get.dart';
+import 'package:laporku/provider/textfield_controller.dart';
 
 class TextFieldCustomWidget extends StatelessWidget {
   final String textName;
@@ -26,18 +28,60 @@ class TextFieldCustomWidget extends StatelessWidget {
         const SizedBox(
           height: 6,
         ),
-        TextField(
-          obscureText: isPassword,
+        isPassword ? _textFieldPassword() : _textFieldWidget(textName)
+      ],
+    );
+  }
+
+  TextField _textFieldWidget(String textName) {
+    return TextField(
+      decoration: InputDecoration(
+        hintText: "input yout ${textName.toLowerCase()}...",
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(18),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(defaultRadius),
+          borderSide: const BorderSide(
+            color: Colors.lightGreen,
+            width: 2,
+          ),
+        ),
+      ),
+    );
+  }
+
+  _textFieldPassword() {
+    var pass = Get.put(TextFieldController());
+    return GetBuilder<TextFieldController>(
+      initState: (_) {},
+      builder: (_) {
+        return TextField(
+          obscureText: pass.isVisible,
+          keyboardType: TextInputType.text,
           decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(18),
+            suffixIcon: IconButton(
+              onPressed: () {
+                pass.changeObsecure();
+              },
+              icon: Icon(
+                pass.isVisible ? Icons.visibility_off : Icons.visibility,
+              ),
             ),
-            suffixIcon: Icon(
-              isPassword ? Icons.visibility : null,
+            hintText: 'input your password...',
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(defaultRadius),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(defaultRadius),
+              borderSide: const BorderSide(
+                color: Colors.lightGreen,
+                width: 2,
+              ),
             ),
           ),
-        )
-      ],
+        );
+      },
     );
   }
 }

@@ -35,7 +35,7 @@ class _SignInPageState extends State<SignInPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                logoWidget(160.0, 100.0),
+                logoWidget(160.0, 100.0, "logo"),
                 const SizedBox(
                   height: 30,
                 ),
@@ -74,7 +74,10 @@ class _SignInPageState extends State<SignInPage> {
                           primary: blueColor,
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, HomePage.routeName);
+                          Navigator.pushNamed(
+                            context,
+                            HomePage.routeName,
+                          );
                         },
                         child: const Text("Sign In"),
                       ),
