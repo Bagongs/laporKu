@@ -39,43 +39,58 @@ class HomePage extends StatelessWidget {
                       fontSize: 14,
                     ),
                   ),
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: const [
-                              Icon(Icons.account_box),
-                              Text("Azizah"),
-                            ],
-                          ),
-                          const Text("April")
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: const [
-                              Icon(Icons.arrow_upward),
-                              Icon(Icons.comment),
-                              Icon(Icons.share),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "•",
-                                style:
-                                    TextStyle(color: yellowColor, fontSize: 36),
-                              ),
-                              const Text("Dalam Proses"),
-                            ],
-                          )
-                        ],
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: const [
+                                Icon(Icons.account_circle),
+                                Text("Azizah"),
+                              ],
+                            ),
+                            const Text("April")
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: const [
+                                Icon(Icons.arrow_circle_up),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Icon(
+                                  Icons.comment,
+                                  size: 22.5,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Icon(
+                                  Icons.share,
+                                  size: 20,
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "•",
+                                  style: TextStyle(
+                                      color: yellowColor, fontSize: 36),
+                                ),
+                                const Text("Dalam Proses"),
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),

@@ -36,14 +36,14 @@ class TextFieldCustomWidget extends StatelessWidget {
   TextField _textFieldWidget(String textName) {
     return TextField(
       decoration: InputDecoration(
-        hintText: "input yout ${textName.toLowerCase()}...",
+        hintText: "input your ${textName.toLowerCase()}...",
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(18),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(defaultRadius),
-          borderSide: const BorderSide(
-            color: Colors.lightGreen,
+          borderSide: BorderSide(
+            color: orangeColor,
             width: 2,
           ),
         ),
@@ -74,8 +74,8 @@ class TextFieldCustomWidget extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(defaultRadius),
-              borderSide: const BorderSide(
-                color: Colors.lightGreen,
+              borderSide: BorderSide(
+                color: orangeColor,
                 width: 2,
               ),
             ),

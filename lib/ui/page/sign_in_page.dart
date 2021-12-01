@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laporku/common/theme.dart';
 import 'package:laporku/ui/page/home_page.dart';
+import 'package:laporku/ui/widgets/bottomnavbar_custom_widget.dart';
 import 'package:laporku/ui/widgets/logo_widget.dart';
 import 'package:laporku/ui/widgets/text_field_custom_widget.dart';
 
@@ -76,7 +77,7 @@ class _SignInPageState extends State<SignInPage> {
                         onPressed: () {
                           Navigator.pushNamed(
                             context,
-                            HomePage.routeName,
+                            BottomNavbarWidget.routeName,
                           );
                         },
                         child: const Text("Sign In"),
