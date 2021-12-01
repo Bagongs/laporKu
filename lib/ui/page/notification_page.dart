@@ -10,7 +10,7 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        automaticallyImplyLeading: false,
         backgroundColor: blueColor,
         title: _notificationTitle(),
       ),

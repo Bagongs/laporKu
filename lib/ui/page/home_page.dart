@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:laporku/common/theme.dart';
+import 'package:laporku/ui/widgets/custom_appbar_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
   static const routeName = "/home_page";
-
+  final String _title = "Laporan";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Laporan"),
-        centerTitle: true,
+      drawer: const Drawer(),
+      appBar: CustomAppbarWidget(
+        titleAppbar: _title,
       ),
       body: SafeArea(
         child: SingleChildScrollView(

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:laporku/common/theme.dart';
 import 'package:get/get.dart';
-import 'package:laporku/provider/textfield_controller.dart';
+import 'package:laporku/services/provider/textfield_controller.dart';
 
 class TextFieldCustomWidget extends StatelessWidget {
   final String textName;
   final bool isPassword;
-
+  final bool isPhone;
   const TextFieldCustomWidget({
     Key? key,
     required this.textName,
+    this.isPhone = false,
     this.isPassword = false,
   }) : super(key: key);
 
@@ -35,6 +36,7 @@ class TextFieldCustomWidget extends StatelessWidget {
 
   TextField _textFieldWidget(String textName) {
     return TextField(
+      keyboardType: isPhone ? TextInputType.number : TextInputType.text,
       decoration: InputDecoration(
         hintText: "input your ${textName.toLowerCase()}...",
         border: OutlineInputBorder(

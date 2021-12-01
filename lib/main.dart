@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: FirstPage.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: {
         NotificationPage.routeName: (context) => const NotificationPage(),
         BottomNavbarWidget.routeName: (context) => const BottomNavbarWidget(),

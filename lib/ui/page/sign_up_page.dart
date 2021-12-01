@@ -46,6 +46,13 @@ class SignUpPage extends StatelessWidget {
                       height: 24,
                     ),
                     const TextFieldCustomWidget(
+                      textName: "Phone",
+                      isPhone: true,
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    const TextFieldCustomWidget(
                       textName: "Email Adress",
                     ),
                     const SizedBox(
@@ -57,6 +64,27 @@ class SignUpPage extends StatelessWidget {
                     ),
                   ],
                 ),
+                Container(
+                  width: double.infinity,
+                  height: 45,
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 50,
+                  ),
+                  decoration: BoxDecoration(
+                    color: blueColor,
+                    borderRadius: BorderRadius.circular(defaultRadius),
+                  ),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Register",
+                      style: whiteTextStyle.copyWith(
+                        fontSize: 18,
+                        fontWeight: semiBold,
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),

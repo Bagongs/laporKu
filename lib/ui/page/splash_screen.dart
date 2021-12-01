@@ -31,12 +31,6 @@ class _SplashScreenState extends State<SplashScreen> {
             200,
             "splash",
           ),
-          const SizedBox(
-            height: 50,
-          ),
-          const CircularProgressIndicator(
-            color: Colors.amber,
-          ),
         ],
       ),
     );
@@ -61,6 +55,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
 // NOTE : VARIABEL DURAION
   final _duration = Duration(
-    seconds: Random().nextInt(6),
+    seconds: 1 + Random().nextInt(6),
   );
 }
