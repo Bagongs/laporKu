@@ -2,43 +2,107 @@ import 'package:flutter/material.dart';
 import 'package:laporku/common/theme.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
-
+  ProfilePage({Key? key}) : super(key: key);
+  List<Map> listItem = [
+    {"title": "Keluar", "icon": Icons.exit_to_app_outlined},
+    {"title": "Tentang Kami", "icon": Icons.contact_support_rounded},
+    {"title": "Nilai aplikasi", "icon": Icons.star_outline},
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.all(defaultMargin),
-            child: Column(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
               children: [
-                SizedBox(
-                  height: defaultMargin,
+                Container(
+                  padding: const EdgeInsets.only(top: 30),
+                  width: double.infinity,
+                  height: 350,
+                  decoration: BoxDecoration(
+                    color: blueColor.withOpacity(0.4),
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(vertical: 20),
+                        width: 150,
+                        height: 150,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/profile-pic.png',
+                            ),
+                          ),
+                        ),
+                      ),
+                      Text(
+                        "GANJAR PRANOWO",
+                        style: whiteTextStyle.copyWith(
+                          fontSize: 24,
+                          fontWeight: medium,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-                const Icon(
-                  Icons.account_circle,
-                  size: 148,
-                ),
-                const SizedBox(
-                  height: 14,
-                ),
-                Text(
-                  "Azizah",
-                  style: blackTextStyle.copyWith(
-                      fontWeight: semiBold, fontSize: 20),
-                ),
-                const SizedBox(
-                  height: 14.0,
-                ),
-                Text(
-                  "azizah@gmail.com",
-                  style: blackTextStyle.copyWith(
-                      fontWeight: semiBold, fontSize: 20),
-                ),
+                Container(
+                  height: 100,
+                  margin: EdgeInsets.only(
+                    top: 300,
+                    left: defaultMargin,
+                    right: defaultMargin,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(defaultRadius),
+                    color: whiteColor,
+                    boxShadow: [
+                      BoxShadow(
+                        color: greyColor,
+                        blurRadius: 6,
+                      )
+                    ],
+                  ),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "0",
+                          style: blueTextstyle.copyWith(
+                            fontSize: 30,
+                            fontWeight: bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        const Text("Laporan")
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.only(),
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  Map item = listItem[index];
+                  return ListTile(
+                    title: Text(item['title']),
+                    leading: Icon(
+                      item['icon'],
+                    ),
+                  );
+                },
+                itemCount: listItem.length,
+              ),
+            )
+          ],
         ),
       ),
     );

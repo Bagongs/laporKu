@@ -22,6 +22,9 @@ TextStyle whiteTextStyle = GoogleFonts.poppins(
 TextStyle yellowTextStyle = GoogleFonts.poppins(
   color: yellowColor,
 );
+TextStyle blueTextstyle = GoogleFonts.poppins(
+  color: blueColor,
+);
 
 FontWeight bold = FontWeight.w700;
 FontWeight semiBold = FontWeight.w600;
