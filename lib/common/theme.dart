@@ -9,7 +9,9 @@ Color blackColor = const Color(0xff000000);
 Color whiteColor = const Color(0xffFFFFFF);
 
 double defaultMargin = 24.0;
+double defaultSmallMargin = 8.0;
 double defaultRadius = 18.0;
+
 TextStyle blackTextStyle = GoogleFonts.poppins(
   color: blackColor,
 );

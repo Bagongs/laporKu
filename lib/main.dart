@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:laporku/ui/page/detail_page.dart';
 import 'package:laporku/ui/page/first_page.dart';
 import 'package:laporku/ui/page/home_page.dart';
 import 'package:laporku/ui/page/notification_page.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         SignInPage.routeName: (context) => const SignInPage(),
         SignUpPage.routeName: (context) => const SignUpPage(),
         HomePage.routeName: (context) => const HomePage(),
+        DetailPage.routeName: (context) => const DetailPage(),
       },
     );
   }
