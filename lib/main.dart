@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:laporku/ui/page/detail_page.dart';
 import 'package:laporku/ui/page/first_page.dart';
+import 'package:laporku/ui/page/form_laporan_page.dart';
 import 'package:laporku/ui/page/home_page.dart';
 import 'package:laporku/ui/page/notification_page.dart';
 import 'package:laporku/ui/page/sign_in_page.dart';
@@ -21,10 +23,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.routeName,
       routes: {
+        FormLaporanPage.routeName: (context) => const FormLaporanPage(),
         NotificationPage.routeName: (context) => const NotificationPage(),
         BottomNavbarWidget.routeName: (context) => const BottomNavbarWidget(),
         SplashScreen.routeName: (context) => const SplashScreen(),
