@@ -46,22 +46,20 @@ class FirstPage extends StatelessWidget {
                 SizedBox(
                   width: 350,
                   height: 55.0,
-                  child: Expanded(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(defaultRadius),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: yellowColor,
-                        ),
-                        onPressed: () {
-                          Navigator.pushNamed(context, SignInPage.routeName);
-                        },
-                        child: Text(
-                          "Get Started",
-                          style: whiteTextStyle.copyWith(
-                            fontWeight: semiBold,
-                            fontSize: 18,
-                          ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(defaultRadius),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: yellowColor,
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, SignInPage.routeName);
+                      },
+                      child: Text(
+                        "Get Started",
+                        style: whiteTextStyle.copyWith(
+                          fontWeight: semiBold,
+                          fontSize: 18,
                         ),
                       ),
                     ),

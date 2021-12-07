@@ -1,3 +1,4 @@
+import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:laporku/common/theme.dart';
 import 'package:laporku/ui/page/home_page.dart';
@@ -33,22 +34,27 @@ class _BottomNavbarWidgetState extends State<BottomNavbarWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: blueColor,
-        onTap: (int val) {
-          setState(() {
-            _indexNav = val;
-          });
-        },
-        items: _listNav.map((data) {
-          return BottomNavigationBarItem(
-            label: data['label'],
-            icon: Icon(
-              data['icon'],
-            ),
-          );
-        }).toList(),
-        currentIndex: _indexNav,
+      bottomNavigationBar: DoubleBackToCloseApp(
+        snackBar: const SnackBar(
+          content: Text("Tekan sekali lagi untuk keluar"),
+        ),
+        child: BottomNavigationBar(
+          selectedItemColor: blueColor,
+          onTap: (int val) {
+            setState(() {
+              _indexNav = val;
+            });
+          },
+          items: _listNav.map((data) {
+            return BottomNavigationBarItem(
+              label: data['label'],
+              icon: Icon(
+                data['icon'],
+              ),
+            );
+          }).toList(),
+          currentIndex: _indexNav,
+        ),
       ),
       body: _listNav[_indexNav]['fragment'],
     );
