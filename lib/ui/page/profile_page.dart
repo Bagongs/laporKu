@@ -8,6 +8,7 @@ class ProfilePage extends StatelessWidget {
     {"title": "Tentang Kami", "icon": Icons.contact_support_rounded},
     {"title": "Nilai aplikasi", "icon": Icons.star_outline},
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

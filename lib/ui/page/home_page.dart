@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:laporku/common/route/route_name.dart';
 import 'package:laporku/common/theme.dart';
-import 'package:laporku/ui/page/detail_page.dart';
 import 'package:laporku/ui/widgets/custom_appbar_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
-  static const routeName = "/home_page";
   final String _title = "Laporan";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget {
             padding: EdgeInsets.all(defaultMargin),
             child: InkWell(
               onTap: () {
-                Navigator.pushNamed(context, DetailPage.routeName);
+                Get.toNamed(RouteName.detailPage);
               },
               child: Card(
                 child: Column(

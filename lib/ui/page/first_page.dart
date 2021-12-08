@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:laporku/common/route/route_name.dart';
 import 'package:laporku/common/theme.dart';
+import 'package:get/get.dart';
 import 'package:laporku/ui/page/sign_in_page.dart';
 import 'package:laporku/ui/page/sign_up_page.dart';
 import 'package:laporku/ui/widgets/logo_widget.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({Key? key}) : super(key: key);
-  static const routeName = "/first_page";
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,7 @@ class FirstPage extends StatelessWidget {
                         primary: yellowColor,
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, SignInPage.routeName);
+                        Get.toNamed(RouteName.signInPage);
                       },
                       child: Text(
                         "Get Started",
@@ -77,7 +78,7 @@ class FirstPage extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, SignUpPage.routeName);
+                        Get.toNamed(RouteName.signUpPage);
                       },
                       child: Text(
                         "Sign Up",

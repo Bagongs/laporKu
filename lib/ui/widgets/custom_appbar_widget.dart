@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:laporku/common/route/route_name.dart';
 import 'package:laporku/common/theme.dart';
 import 'package:laporku/ui/page/notification_page.dart';
 
@@ -16,7 +18,7 @@ class CustomAppbarWidget extends StatelessWidget
       actions: [
         IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, NotificationPage.routeName);
+            Get.toNamed(RouteName.notificationPage);
           },
           icon: const Icon(
             Icons.notifications,

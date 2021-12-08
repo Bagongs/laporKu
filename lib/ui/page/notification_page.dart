@@ -4,7 +4,6 @@ import 'package:laporku/ui/widgets/logo_widget.dart';
 
 class NotificationPage extends StatelessWidget {
   const NotificationPage({Key? key}) : super(key: key);
-  static const routeName = '/notification-page';
 
   @override
   Widget build(BuildContext context) {

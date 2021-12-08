@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:laporku/ui/page/detail_page.dart';
-import 'package:laporku/ui/page/first_page.dart';
-import 'package:laporku/ui/page/form_laporan_page.dart';
-import 'package:laporku/ui/page/home_page.dart';
-import 'package:laporku/ui/page/notification_page.dart';
-import 'package:laporku/ui/page/sign_in_page.dart';
-import 'package:laporku/ui/page/sign_up_page.dart';
-import 'package:laporku/ui/page/splash_screen.dart';
-import 'package:laporku/ui/widgets/bottomnavbar_custom_widget.dart';
+import 'common/route/page_route.dart';
+import 'common/route/route_name.dart';
 
 void main() {
   // NOTE: keep the app portrait up
@@ -25,18 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: SplashScreen.routeName,
-      routes: {
-        FormLaporanPage.routeName: (context) => const FormLaporanPage(),
-        NotificationPage.routeName: (context) => const NotificationPage(),
-        BottomNavbarWidget.routeName: (context) => const BottomNavbarWidget(),
-        SplashScreen.routeName: (context) => const SplashScreen(),
-        FirstPage.routeName: (context) => const FirstPage(),
-        SignInPage.routeName: (context) => const SignInPage(),
-        SignUpPage.routeName: (context) => const SignUpPage(),
-        HomePage.routeName: (context) => const HomePage(),
-        DetailPage.routeName: (context) => const DetailPage(),
-      },
+      initialRoute: RouteName.splashScreen,
+      getPages: AppRoute.pages,
     );
   }
 }

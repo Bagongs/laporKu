@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:laporku/common/route/route_name.dart';
 import 'package:laporku/common/theme.dart';
-import 'package:laporku/ui/widgets/bottomnavbar_custom_widget.dart';
 import 'package:laporku/ui/widgets/logo_widget.dart';
 import 'package:laporku/ui/widgets/text_field_custom_widget.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
-  static const routeName = "/sign_in_page";
 
   @override
   _SignInPageState createState() => _SignInPageState();
@@ -74,11 +74,7 @@ class _SignInPageState extends State<SignInPage> {
                           primary: blueColor,
                         ),
                         onPressed: () {
-                          Navigator.pushNamedAndRemoveUntil(
-                            context,
-                            BottomNavbarWidget.routeName,
-                            (route) => false,
-                          );
+                          Get.offAllNamed(RouteName.bottomNavbarWidget);
                         },
                         child: const Text("Sign In"),
                       ),

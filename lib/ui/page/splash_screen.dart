@@ -2,12 +2,12 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:laporku/ui/page/first_page.dart';
+import 'package:laporku/common/route/route_name.dart';
+import 'package:get/get.dart';
 import 'package:laporku/ui/widgets/logo_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
-  static const routeName = '/splash-screen';
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
       _duration,
       () {
-        Navigator.pushReplacementNamed(context, FirstPage.routeName);
+        Get.offNamed(RouteName.firstPage);
       },
     );
   }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:laporku/common/route/route_name.dart';
 import 'package:laporku/common/theme.dart';
 import 'package:laporku/ui/widgets/text_field_custom_widget.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
-  static const routeName = "/sign_up_page";
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +76,9 @@ class SignUpPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(defaultRadius),
                   ),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(RouteName.signInPage);
+                    },
                     child: Text(
                       "Register",
                       style: whiteTextStyle.copyWith(

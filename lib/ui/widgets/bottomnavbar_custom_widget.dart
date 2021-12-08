@@ -7,7 +7,7 @@ import 'package:laporku/ui/page/profile_page.dart';
 
 class BottomNavbarWidget extends StatefulWidget {
   const BottomNavbarWidget({Key? key}) : super(key: key);
-  static const routeName = '/bottom-navbar';
+
   @override
   _BottomNavbarWidgetState createState() => _BottomNavbarWidgetState();
 }
