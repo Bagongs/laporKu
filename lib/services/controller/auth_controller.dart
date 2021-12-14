@@ -26,7 +26,7 @@ class AuthController extends GetxController {
 
   void signup(String email, String password) async {
     try {
-      UserCredential userCredential = await auth.createUserWithEmailAndPassword(
+      await auth.createUserWithEmailAndPassword(
           email: email, password: password);
       Get.offAllNamed(RouteName.bottomNavbarWidget);
     } on FirebaseAuthException catch (e) {
