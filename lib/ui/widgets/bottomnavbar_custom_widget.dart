@@ -28,7 +28,7 @@ class _BottomNavbarWidgetState extends State<BottomNavbarWidget> {
     {
       "label": "Profile",
       "icon": Icons.account_circle,
-      "fragment": ProfilePage(),
+      "fragment": const ProfilePage(),
     }
   ];
   @override

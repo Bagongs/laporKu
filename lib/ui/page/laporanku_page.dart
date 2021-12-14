@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:laporku/common/route/route_name.dart';
 import 'package:laporku/common/theme.dart';
-import 'package:laporku/ui/page/form_laporan_page.dart';
 import 'package:laporku/ui/widgets/create_laporan_widget.dart';
 import 'package:laporku/ui/widgets/custom_appbar_widget.dart';
 

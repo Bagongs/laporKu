@@ -4,13 +4,20 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:laporku/common/theme.dart';
 import 'package:laporku/services/controller/auth_controller.dart';
 
-class ProfilePage extends StatelessWidget {
-  ProfilePage({Key? key}) : super(key: key);
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({Key? key}) : super(key: key);
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   List<Map> listItem = [
     {"title": "Keluar", "icon": Icons.exit_to_app_outlined},
     {"title": "Tentang Kami", "icon": Icons.contact_support_rounded},
     {"title": "Nilai aplikasi", "icon": Icons.star_outline},
   ];
+
   final authC = Get.find<AuthController>();
 
   @override
