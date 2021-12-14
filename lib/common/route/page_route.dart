@@ -52,13 +52,5 @@ class AppRoute {
       name: RouteName.detailPage,
       page: () => const DetailPage(),
     ),
-    // GetPage(
-    //   name: RouteName.signInController,
-    //   page: () => const DetailPage(),
-    // ),
-    // GetPage(
-    //   name: RouteName.signUpController,
-    //   page: () => const DetailPage(),
-    // ),
   ];
 }

@@ -11,6 +11,4 @@ abstract class RouteName {
   static const notificationPage = "/notification_page";
   static const bottomNavbarWidget = "/bottom_navbar_widget";
   static const wrapper = "/wrapper";
-  // static const signInController = "/sign_in_controller";
-  // static const signUpController = "/sign_Up_controller";
 }

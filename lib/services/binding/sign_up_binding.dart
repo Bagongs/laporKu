@@ -4,7 +4,6 @@ import 'package:laporku/services/controller/sign_up_controller.dart';
 class SignUpBinding extends Bindings {
   @override
   void dependencies() {
-    // TODO: implement dependencies
     Get.lazyPut<SignUpController>(() => SignUpController());
   }
 }

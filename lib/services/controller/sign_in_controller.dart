@@ -9,7 +9,6 @@ class SignInController extends GetxController {
 
   @override
   void onClose() {
-    // TODO: implement onClose
     emailController.dispose();
     passwordController.dispose();
     super.onClose();
