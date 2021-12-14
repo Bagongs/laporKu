@@ -1,25 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laporku/common/route/route_name.dart';
 import 'package:laporku/common/theme.dart';
+import 'package:laporku/services/controller/auth_controller.dart';
+import 'package:laporku/services/controller/sign_in_controller.dart';
 import 'package:laporku/ui/widgets/logo_widget.dart';
 import 'package:laporku/ui/widgets/text_field_custom_widget.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({Key? key}) : super(key: key);
-
-  @override
-  _SignInPageState createState() => _SignInPageState();
-}
-
-class _SignInPageState extends State<SignInPage> {
-  final _controller = TextEditingController();
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+class SignInPage extends GetView<SignInController> {
+  SignInPage({Key? key}) : super(key: key);
+  final authC = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +38,16 @@ class _SignInPageState extends State<SignInPage> {
                 const SizedBox(
                   height: 30,
                 ),
-                const TextFieldCustomWidget(
+                TextFieldCustomWidget(
+                  controller: controller.emailController,
                   textName: "Email Adress",
                   isPassword: false,
                 ),
                 const SizedBox(
                   height: 24.0,
                 ),
-                const TextFieldCustomWidget(
+                TextFieldCustomWidget(
+                  controller: controller.passwordController,
                   textName: "Password",
                   isPassword: true,
                 ),
@@ -74,7 +65,9 @@ class _SignInPageState extends State<SignInPage> {
                           primary: blueColor,
                         ),
                         onPressed: () {
-                          Get.offAllNamed(RouteName.bottomNavbarWidget);
+                          authC.signin(controller.emailController.text,
+                              controller.passwordController.text);
+                          // Get.offAllNamed(RouteName.bottomNavbarWidget);
                         },
                         child: const Text("Sign In"),
                       ),

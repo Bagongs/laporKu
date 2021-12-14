@@ -4,12 +4,14 @@ import 'package:get/get.dart';
 import 'package:laporku/services/provider/textfield_controller.dart';
 
 class TextFieldCustomWidget extends StatelessWidget {
+  final TextEditingController controller;
   final String textName;
   final bool isPassword;
   final bool isPhone;
   const TextFieldCustomWidget({
     Key? key,
     required this.textName,
+    required this.controller,
     this.isPhone = false,
     this.isPassword = false,
   }) : super(key: key);
@@ -36,6 +38,7 @@ class TextFieldCustomWidget extends StatelessWidget {
 
   TextField _textFieldWidget(String textName) {
     return TextField(
+      controller: controller,
       keyboardType: isPhone ? TextInputType.number : TextInputType.text,
       decoration: InputDecoration(
         hintText: "input your ${textName.toLowerCase()}...",

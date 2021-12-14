@@ -1,3 +1,5 @@
+import 'package:laporku/services/controller/sign_in_controller.dart';
+
 abstract class RouteName {
   static const splashScreen = "/splash_screen";
   static const firstPage = "/first_page";
@@ -8,4 +10,7 @@ abstract class RouteName {
   static const formLaporanPage = "/form_laporan_page";
   static const notificationPage = "/notification_page";
   static const bottomNavbarWidget = "/bottom_navbar_widget";
+  static const wrapper = "/wrapper";
+  // static const signInController = "/sign_in_controller";
+  // static const signUpController = "/sign_Up_controller";
 }

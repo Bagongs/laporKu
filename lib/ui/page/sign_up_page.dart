@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laporku/common/route/route_name.dart';
 import 'package:laporku/common/theme.dart';
+import 'package:laporku/services/controller/auth_controller.dart';
+import 'package:laporku/services/controller/sign_up_controller.dart';
 import 'package:laporku/ui/widgets/text_field_custom_widget.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+class SignUpPage extends GetView<SignUpController> {
+  SignUpPage({Key? key}) : super(key: key);
+  final nameController = TextEditingController(text: "orang");
+  final phoneController = TextEditingController(text: "123456");
+
+  final authC = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -40,26 +45,30 @@ class SignUpPage extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    const TextFieldCustomWidget(
+                    TextFieldCustomWidget(
+                      controller: nameController,
                       textName: "Full Name",
                     ),
                     const SizedBox(
                       height: 24,
                     ),
-                    const TextFieldCustomWidget(
+                    TextFieldCustomWidget(
+                      controller: phoneController,
                       textName: "Phone",
                       isPhone: true,
                     ),
                     const SizedBox(
                       height: 24,
                     ),
-                    const TextFieldCustomWidget(
+                    TextFieldCustomWidget(
+                      controller: controller.emailController,
                       textName: "Email Adress",
                     ),
                     const SizedBox(
                       height: 24,
                     ),
-                    const TextFieldCustomWidget(
+                    TextFieldCustomWidget(
+                      controller: controller.passwordController,
                       textName: "Password",
                       isPassword: true,
                     ),
@@ -77,7 +86,9 @@ class SignUpPage extends StatelessWidget {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      Get.toNamed(RouteName.signInPage);
+                      authC.signup(controller.emailController.text,
+                          controller.passwordController.text);
+                      // Get.toNamed(RouteName.signInPage);
                     },
                     child: Text(
                       "Register",

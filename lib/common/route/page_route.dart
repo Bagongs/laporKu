@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:laporku/common/route/route_name.dart';
+import 'package:laporku/services/binding/sign_in_binding.dart';
+import 'package:laporku/services/binding/sign_up_binding.dart';
 import 'package:laporku/ui/page/detail_page.dart';
 import 'package:laporku/ui/page/first_page.dart';
 import 'package:laporku/ui/page/form_laporan_page.dart';
@@ -34,11 +36,13 @@ class AppRoute {
     ),
     GetPage(
       name: RouteName.signInPage,
-      page: () => const SignInPage(),
+      page: () => SignInPage(),
+      binding: SignInBinding(),
     ),
     GetPage(
       name: RouteName.signUpPage,
-      page: () => const SignUpPage(),
+      page: () => SignUpPage(),
+      binding: SignUpBinding(),
     ),
     GetPage(
       name: RouteName.homePage,
@@ -48,5 +52,13 @@ class AppRoute {
       name: RouteName.detailPage,
       page: () => const DetailPage(),
     ),
+    // GetPage(
+    //   name: RouteName.signInController,
+    //   page: () => const DetailPage(),
+    // ),
+    // GetPage(
+    //   name: RouteName.signUpController,
+    //   page: () => const DetailPage(),
+    // ),
   ];
 }

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:laporku/common/route/route_name.dart';
 import 'package:laporku/common/theme.dart';
 import 'package:get/get.dart';
-import 'package:laporku/ui/page/sign_in_page.dart';
-import 'package:laporku/ui/page/sign_up_page.dart';
 import 'package:laporku/ui/widgets/logo_widget.dart';
 
 class FirstPage extends StatelessWidget {
