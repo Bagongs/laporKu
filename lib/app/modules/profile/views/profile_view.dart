@@ -23,6 +23,8 @@ class ProfileView extends GetView<ProfileController> {
     },
   ];
 
+  ProfileView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,23 +104,23 @@ class ProfileView extends GetView<ProfileController> {
             ),
             ListView(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               children: [
                 ListTile(
-                  title: Text("Keluar"),
-                  leading: Icon(Icons.exit_to_app_outlined),
+                  title: const Text("Keluar"),
+                  leading: const Icon(Icons.exit_to_app_outlined),
                   onTap: () {
                     auth.logOut();
                   },
                 ),
                 ListTile(
-                  title: Text("Tentang Kami"),
-                  leading: Icon(Icons.contact_support_rounded),
+                  title: const Text("Tentang Kami"),
+                  leading: const Icon(Icons.contact_support_rounded),
                   onTap: () {},
                 ),
                 ListTile(
-                  title: Text("Nilai Aplikas"),
-                  leading: Icon(Icons.star_outline),
+                  title: const Text("Nilai Aplikas"),
+                  leading: const Icon(Icons.star_outline),
                   onTap: () {},
                 ),
               ],

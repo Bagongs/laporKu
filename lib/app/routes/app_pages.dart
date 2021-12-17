@@ -1,6 +1,5 @@
 import '/app/modules/home/views/detail_view.dart';
 import 'package:get/get.dart';
-
 import '/app/modules/form_laporan/bindings/form_laporan_binding.dart';
 import '/app/modules/form_laporan/views/form_laporan_view.dart';
 import '/app/modules/home/bindings/home_binding.dart';
@@ -58,7 +57,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.LAPORAN,
-      page: () => LaporanView(),
+      page: () => const LaporanView(),
       binding: LaporanBinding(),
     ),
     GetPage(

@@ -8,6 +8,8 @@ import '../controllers/sign_in_controller.dart';
 
 class SignInView extends GetView<SignInController> {
   final auth = Get.find<AuthController>();
+
+  SignInView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +28,7 @@ class SignInView extends GetView<SignInController> {
                 Container(
                   width: 160,
                   height: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('assets/logo.png'),
                       fit: BoxFit.cover,

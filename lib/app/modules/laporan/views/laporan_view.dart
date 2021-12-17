@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import '../controllers/laporan_controller.dart';
 
 class LaporanView extends GetView<LaporanController> {
+  const LaporanView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +35,7 @@ class LaporanView extends GetView<LaporanController> {
           ),
         ),
         backgroundColor: blueColor,
-        title: Text("Laporan"),
+        title: const Text("Laporan"),
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(

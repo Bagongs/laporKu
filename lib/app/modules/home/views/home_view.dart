@@ -19,7 +19,7 @@ class HomeView extends GetView<HomeController> {
     {
       "label": "Laporanku",
       "icon": Icons.list,
-      "fragment": LaporanView(),
+      "fragment": const LaporanView(),
     },
     {
       "label": "Profile",

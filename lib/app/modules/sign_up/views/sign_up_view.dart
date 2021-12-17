@@ -8,6 +8,9 @@ import '../controllers/sign_up_controller.dart';
 
 class SignUpView extends GetView<SignUpController> {
   final auth = Get.find<AuthController>();
+
+  SignUpView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
