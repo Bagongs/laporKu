@@ -53,7 +53,7 @@ class ProfileView extends GetView<ProfileController> {
                         ),
                       ),
                       Text(
-                        "GANJAR PRANOWO",
+                        "ACCOUNT NAME",
                         style: whiteTextStyle.copyWith(
                           fontSize: 24,
                           fontWeight: medium,
