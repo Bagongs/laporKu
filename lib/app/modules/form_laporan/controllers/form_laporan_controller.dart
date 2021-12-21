@@ -9,7 +9,8 @@ class FormLaporanController extends GetxController {
   late TextEditingController lokasiC;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  void add(String judul, String isi, String lokasi) async {
+  void add(String judul, String isi, String lokasi, String nama, String telp,
+      String status, String date, int up) async {
     CollectionReference laporan = firestore.collection("laporan");
 
     try {
@@ -17,6 +18,11 @@ class FormLaporanController extends GetxController {
         "judul": judul,
         "isi": isi,
         "lokasi": lokasi,
+        "nama": nama,
+        "telp": telp,
+        "status": status,
+        "date": date,
+        "up": up,
       });
 
       Get.defaultDialog(
@@ -54,5 +60,11 @@ class FormLaporanController extends GetxController {
     isiC.dispose();
     lokasiC.dispose();
     super.dispose();
+  }
+
+  Stream<QuerySnapshot<Object?>> streamData() {
+    CollectionReference user = firestore.collection("users");
+
+    return user.snapshots();
   }
 }

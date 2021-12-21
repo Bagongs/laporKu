@@ -57,6 +57,72 @@ class SignUpView extends GetView<SignUpController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
+                          "Nama",
+                          style: greyTextStyle.copyWith(
+                            fontWeight: medium,
+                            fontSize: 16,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 6,
+                        ),
+                        TextField(
+                          controller: controller.namaC,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            hintText: "input your name...",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(18),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.circular(defaultRadius),
+                              borderSide: BorderSide(
+                                color: orangeColor,
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Nomer Telephone",
+                          style: greyTextStyle.copyWith(
+                            fontWeight: medium,
+                            fontSize: 16,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 6,
+                        ),
+                        TextField(
+                          controller: controller.telpC,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            hintText: "input your telephone...",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(18),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.circular(defaultRadius),
+                              borderSide: BorderSide(
+                                color: orangeColor,
+                                width: 2,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
                           "Email Address",
                           style: greyTextStyle.copyWith(
                             fontWeight: medium,
@@ -140,6 +206,13 @@ class SignUpView extends GetView<SignUpController> {
                       auth.signUp(
                         controller.emailC.text,
                         controller.passC.text,
+                      );
+
+                      controller.addUser(
+                        controller.emailC.text,
+                        controller.passC.text,
+                        controller.namaC.text,
+                        controller.telpC.text,
                       );
                     },
                     child: Text(

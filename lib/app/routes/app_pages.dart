@@ -62,7 +62,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FORM_LAPORAN,
-      page: () => const FormLaporanView(),
+      page: () => FormLaporanView(),
       binding: FormLaporanBinding(),
     ),
   ];

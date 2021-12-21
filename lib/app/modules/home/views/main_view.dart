@@ -72,11 +72,13 @@ class MainView extends GetView<HomeController> {
                             const SizedBox(
                               height: 6.0,
                             ),
-                            Text(
-                              "${(listAllLaporan[index].data() as Map<String, dynamic>)["judul"]}",
-                              style: blackTextStyle.copyWith(
-                                fontWeight: semiBold,
-                                fontSize: 14,
+                            Center(
+                              child: Text(
+                                "${(listAllLaporan[index].data() as Map<String, dynamic>)["judul"]}",
+                                style: blackTextStyle.copyWith(
+                                  fontWeight: semiBold,
+                                  fontSize: 14,
+                                ),
                               ),
                             ),
                             Padding(
@@ -88,12 +90,14 @@ class MainView extends GetView<HomeController> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Row(
-                                        children: const [
-                                          Icon(Icons.account_circle),
-                                          Text("Azizah"),
+                                        children: [
+                                          const Icon(Icons.account_circle),
+                                          Text(
+                                              "${(listAllLaporan[index].data() as Map<String, dynamic>)["nama"]}"),
                                         ],
                                       ),
-                                      const Text("April")
+                                      Text(
+                                          "${(listAllLaporan[index].data() as Map<String, dynamic>)["date"]}")
                                     ],
                                   ),
                                   Row(
@@ -101,19 +105,21 @@ class MainView extends GetView<HomeController> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Row(
-                                        children: const [
-                                          Icon(Icons.arrow_circle_up),
-                                          SizedBox(
+                                        children: [
+                                          Text(
+                                              "${(listAllLaporan[index].data() as Map<String, dynamic>)["up"]}"),
+                                          const Icon(Icons.arrow_circle_up),
+                                          const SizedBox(
                                             width: 5,
                                           ),
-                                          Icon(
+                                          const Icon(
                                             Icons.comment,
                                             size: 22.5,
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             width: 5,
                                           ),
-                                          Icon(
+                                          const Icon(
                                             Icons.share,
                                             size: 20,
                                           ),
@@ -128,7 +134,8 @@ class MainView extends GetView<HomeController> {
                                               fontSize: 36,
                                             ),
                                           ),
-                                          const Text("Dalam Proses"),
+                                          Text(
+                                              "${(listAllLaporan[index].data() as Map<String, dynamic>)["status"]}"),
                                         ],
                                       )
                                     ],
