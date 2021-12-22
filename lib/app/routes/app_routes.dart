@@ -13,6 +13,7 @@ abstract class Routes {
   static const NOTIFICATION = _Paths.NOTIFICATION;
   static const FORM_LAPORAN = _Paths.FORM_LAPORAN;
   static const DETAIL = _Paths.DETAIL;
+  static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
 }
 
 abstract class _Paths {
@@ -26,4 +27,5 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const LAPORAN = '/laporan';
   static const FORM_LAPORAN = '/form-laporan';
+  static const RESET_PASSWORD = '/reset-password';
 }

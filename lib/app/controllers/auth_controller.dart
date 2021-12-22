@@ -6,6 +6,34 @@ class AuthController extends GetxController {
   FirebaseAuth auth = FirebaseAuth.instance;
   Stream<User?> get streamAuth => auth.authStateChanges();
 
+  void resetPassword(String email) async {
+    if (email != '' && GetUtils.isEmail(email)) {
+      try {
+        await auth.sendPasswordResetEmail(email: email);
+        Get.defaultDialog(
+          title: 'Berhasil',
+          middleText: 'Kami telah mengirimkan reset password ke email $email',
+          onConfirm: () {
+            Get.back();
+
+            Get.back();
+          },
+          textConfirm: 'Oke',
+        );
+      } catch (e) {
+        Get.defaultDialog(
+          title: "Terjadi Kesalahan",
+          middleText: "Tidak dapat mengirimkan reset password.",
+        );
+      }
+    } else {
+      Get.defaultDialog(
+        title: 'Terjadi kesalahan',
+        middleText: 'Email tersebut tidak valid',
+      );
+    }
+  }
+
   void login(String email, String password) async {
     try {
       UserCredential myUser = await auth.signInWithEmailAndPassword(
@@ -22,13 +50,15 @@ class AuthController extends GetxController {
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No user found for that email.');
         Get.defaultDialog(
           title: "User Not Found",
           middleText: "user dengan email tsb belum terdaftar",
         );
       } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
+        Get.defaultDialog(
+          title: 'Wrong Password',
+          middleText: 'Password yang anda masukkan salah',
+        );
       }
     }
   }
@@ -51,18 +81,32 @@ class AuthController extends GetxController {
         textConfirm: "Ya, Saya akan cek email.",
       );
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+      if (e.code == 'email-already-in-use') {
+        Get.defaultDialog(
+          title: 'Something Wrong',
+          middleText: 'Email sudah ada yang menggunakan',
+        );
       }
     } catch (e) {
       print(e);
     }
   }
 
-  void logOut() async {
-    await FirebaseAuth.instance.signOut();
-    Get.offAllNamed(Routes.GET_STARTED);
+  void logOut() {
+    try {
+      Get.defaultDialog(
+        title: 'Pesan Konfirmasi',
+        middleText: 'Yakin ingin keluar ?',
+        textConfirm: 'Ya',
+        textCancel: 'Tidak',
+        onConfirm: () async {
+          await FirebaseAuth.instance.signOut();
+
+          Get.offAllNamed(Routes.GET_STARTED);
+        },
+      );
+    } catch (e) {
+      print(e);
+    }
   }
 }

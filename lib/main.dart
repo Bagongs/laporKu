@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
           return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
             title: 'LaporKu App',
             getPages: AppPages.routes,
             initialRoute:

@@ -1,8 +1,12 @@
-import '/app/modules/home/views/detail_view.dart';
 import 'package:get/get.dart';
+
+import 'package:laporku/app/modules/reset_password/bindings/reset_password_binding.dart';
+import 'package:laporku/app/modules/reset_password/views/reset_password_view.dart';
+
 import '/app/modules/form_laporan/bindings/form_laporan_binding.dart';
 import '/app/modules/form_laporan/views/form_laporan_view.dart';
 import '/app/modules/home/bindings/home_binding.dart';
+import '/app/modules/home/views/detail_view.dart';
 import '/app/modules/home/views/home_view.dart';
 import '/app/modules/laporan/bindings/laporan_binding.dart';
 import '/app/modules/laporan/views/laporan_view.dart';
@@ -64,6 +68,11 @@ class AppPages {
       name: _Paths.FORM_LAPORAN,
       page: () => FormLaporanView(),
       binding: FormLaporanBinding(),
+    ),
+    GetPage(
+      name: _Paths.RESET_PASSWORD,
+      page: () => ResetPasswordView(),
+      binding: ResetPasswordBinding(),
     ),
   ];
 }

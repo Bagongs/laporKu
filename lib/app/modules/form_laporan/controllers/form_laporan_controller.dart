@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:laporku/app/routes/app_pages.dart';
 
 class FormLaporanController extends GetxController {
@@ -8,6 +12,22 @@ class FormLaporanController extends GetxController {
   late TextEditingController isiC;
   late TextEditingController lokasiC;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  File? image;
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      var imageTemporary = File(image.path);
+      this.image = imageTemporary;
+      update();
+    } on PlatformException catch (e) {
+      Get.defaultDialog(
+        title: 'Tidak Berhasil',
+        middleText: 'Gagal mengambil gambar: $e',
+      );
+    }
+  }
 
   void add(String judul, String isi, String lokasi, String nama, String telp,
       String status, String date, int up) async {

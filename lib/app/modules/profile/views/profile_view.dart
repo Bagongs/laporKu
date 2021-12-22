@@ -1,3 +1,8 @@
+import 'dart:io';
+
+import 'package:image_picker/image_picker.dart';
+import 'package:laporku/app/routes/app_pages.dart';
+
 import '/app/controllers/auth_controller.dart';
 import '/app/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -7,21 +12,7 @@ import 'package:get/get.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
-  final auth = Get.put(AuthController());
-  final List<Map<String, dynamic>> listItem = [
-    {
-      "title": "Keluar",
-      "icon": Icons.exit_to_app_outlined,
-    },
-    {
-      "title": "Tentang Kami",
-      "icon": Icons.contact_support_rounded,
-    },
-    {
-      "title": "Nilai aplikasi",
-      "icon": Icons.star_outline,
-    },
-  ];
+  final auth = Get.find<AuthController>();
 
   ProfileView({Key? key}) : super(key: key);
 
@@ -107,13 +98,6 @@ class ProfileView extends GetView<ProfileController> {
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 ListTile(
-                  title: const Text("Keluar"),
-                  leading: const Icon(Icons.exit_to_app_outlined),
-                  onTap: () {
-                    auth.logOut();
-                  },
-                ),
-                ListTile(
                   title: const Text("Tentang Kami"),
                   leading: const Icon(Icons.contact_support_rounded),
                   onTap: () {},
@@ -122,6 +106,20 @@ class ProfileView extends GetView<ProfileController> {
                   title: const Text("Nilai Aplikas"),
                   leading: const Icon(Icons.star_outline),
                   onTap: () {},
+                ),
+                ListTile(
+                  title: const Text("Log Out"),
+                  leading: const Icon(Icons.logout),
+                  onTap: () {
+                    auth.logOut();
+                  },
+                ),
+                ListTile(
+                  title: const Text("Reset Password"),
+                  leading: const Icon(Icons.password_outlined),
+                  onTap: () {
+                    Get.toNamed(Routes.RESET_PASSWORD);
+                  },
                 ),
               ],
             )
