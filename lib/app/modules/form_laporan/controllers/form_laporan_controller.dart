@@ -12,7 +12,7 @@ class FormLaporanController extends GetxController {
   late TextEditingController isiC;
   late TextEditingController lokasiC;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-
+  final formKey = GlobalKey<FormState>();
   File? image;
   Future pickImage() async {
     try {

@@ -95,14 +95,25 @@ class ProfileView extends GetView<HomeController> {
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 ListTile(
-                  title: const Text("Tentang Kami"),
+                  title: const Text("Tentang App"),
                   leading: const Icon(Icons.contact_support_rounded),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text("Nilai Aplikas"),
-                  leading: const Icon(Icons.star_outline),
-                  onTap: () {},
+                  onTap: () {
+                    Get.defaultDialog(
+                      title: 'LaporKu',
+                      content: Column(
+                        children: [
+                          Image.asset(
+                            'assets/logo.png',
+                            width: 100,
+                            height: 50,
+                            fit: BoxFit.cover,
+                          ),
+                          const Text(
+                              'LaporKu adalah aplikasi penampung wadah aspirasi dan keluhan masyarakat baik itu mengenai infrastruktur pemerintah daerah maupun masalah sosial lainnya,'),
+                        ],
+                      ),
+                    );
+                  },
                 ),
                 ListTile(
                   title: const Text("Log Out"),

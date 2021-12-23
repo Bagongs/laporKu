@@ -60,120 +60,135 @@ class FormLaporanView extends GetView<FormLaporanController> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: defaultMargin),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TextField(
-                          controller: controller.judulC,
-                          autocorrect: false,
-                          textInputAction: TextInputAction.next,
-                          decoration: const InputDecoration(
-                            labelText: 'judul Aduan',
-                            border: OutlineInputBorder(),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        TextField(
-                          controller: controller.isiC,
-                          maxLines: 5,
-                          maxLength: 250,
-                          textInputAction: TextInputAction.next,
-                          decoration: const InputDecoration(
-                            labelText: 'Isi Aduan',
-                            border: OutlineInputBorder(),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        TextField(
-                          controller: TextEditingController(
-                            text: 'Automatis di isi lokasinya',
-                          ),
-                          enabled: false,
-                          keyboardType: TextInputType.none,
-                          readOnly: true,
-                          decoration: InputDecoration(
-                            label: Row(
-                              children: const [
-                                Icon(Icons.location_on),
-                                Text("Lokasi")
-                              ],
+                    child: Form(
+                      key: controller.formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TextFormField(
+                            validator: (value) =>
+                                value == '' ? "Dont Empty" : null,
+                            controller: controller.judulC,
+                            autocorrect: false,
+                            textInputAction: TextInputAction.next,
+                            decoration: const InputDecoration(
+                              labelText: 'judul Aduan',
+                              border: OutlineInputBorder(),
                             ),
-                            border: const OutlineInputBorder(),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        TextField(
-                          controller: controller.lokasiC,
-                          decoration: const InputDecoration(
-                            labelText: 'Keterangan Lokasi',
-                            border: OutlineInputBorder(),
+                          const SizedBox(
+                            height: 12,
                           ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Gambar Aduan",
-                              style: blackTextStyle.copyWith(
-                                fontWeight: FontWeight.w600,
+                          TextFormField(
+                            validator: (value) =>
+                                value == '' ? "Dont Empty" : null,
+                            controller: controller.isiC,
+                            maxLines: 5,
+                            maxLength: 250,
+                            textInputAction: TextInputAction.next,
+                            decoration: const InputDecoration(
+                              labelText: 'Isi Aduan',
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          TextFormField(
+                            validator: (value) =>
+                                value == '' ? "Dont Empty" : null,
+                            controller: TextEditingController(
+                              text: 'Automatis di isi lokasinya',
+                            ),
+                            enabled: false,
+                            keyboardType: TextInputType.none,
+                            readOnly: true,
+                            decoration: InputDecoration(
+                              label: Row(
+                                children: const [
+                                  Icon(Icons.location_on),
+                                  Text("Lokasi")
+                                ],
                               ),
+                              border: const OutlineInputBorder(),
                             ),
-                            const SizedBox(
-                              height: 10,
+                          ),
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          TextFormField(
+                            validator: (value) =>
+                                value == '' ? "Dont Empty" : null,
+                            controller: controller.lokasiC,
+                            decoration: const InputDecoration(
+                              labelText: 'Keterangan Lokasi',
+                              border: OutlineInputBorder(),
                             ),
-                            GetBuilder<FormLaporanController>(
-                              builder: (_) {
-                                return Material(
-                                  elevation: 8,
-                                  child: InkWell(
-                                    onTap: () {
-                                      controller.pickImage();
-                                    },
-                                    child: Container(
-                                      height: 100,
-                                      width: 100,
-                                      decoration: BoxDecoration(
-                                          color: Colors.grey[400]),
-                                      child: controller.image != null
-                                          ? Image.file(controller.image!)
-                                          : Image.asset(
-                                              'assets/addimg.png',
-                                              fit: BoxFit.cover,
-                                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Gambar Aduan",
+                                style: blackTextStyle.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              GetBuilder<FormLaporanController>(
+                                builder: (_) {
+                                  return Material(
+                                    elevation: 8,
+                                    child: InkWell(
+                                      onTap: () {
+                                        controller.pickImage();
+                                      },
+                                      child: Container(
+                                        height: 100,
+                                        width: 100,
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey[400]),
+                                        child: controller.image != null
+                                            ? Image.file(controller.image!)
+                                            : Image.asset(
+                                                'assets/addimg.png',
+                                                fit: BoxFit.cover,
+                                              ),
+                                      ),
                                     ),
-                                  ),
-                                );
-                              },
-                            ),
-                            Center(
-                              child: ElevatedButton(
+                                  );
+                                },
+                              ),
+                              Center(
+                                child: ElevatedButton(
                                   onPressed: () {
-                                    controller.add(
-                                      controller.judulC.text,
-                                      controller.isiC.text,
-                                      controller.lokasiC.text,
-                                      "${(listUser[index].data() as Map<String, dynamic>)["nama"]}",
-                                      "${(listUser[index].data() as Map<String, dynamic>)["telp"]}",
-                                      Get.arguments.toString(),
-                                      datetime,
-                                      0,
-                                      auth.currentUser!.email,
-                                    );
+                                    if (controller.formKey.currentState!
+                                        .validate()) {
+                                      controller.add(
+                                        controller.judulC.text,
+                                        controller.isiC.text,
+                                        controller.lokasiC.text,
+                                        "${(listUser[index].data() as Map<String, dynamic>)["nama"]}",
+                                        "${(listUser[index].data() as Map<String, dynamic>)["telp"]}",
+                                        Get.arguments.toString(),
+                                        datetime,
+                                        0,
+                                        auth.currentUser!.email,
+                                      );
+                                    }
                                   },
-                                  child: const Text("Laporkan")),
-                            )
-                          ],
-                        )
-                      ],
+                                  child: const Text("Laporkan"),
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   )
                 ],
