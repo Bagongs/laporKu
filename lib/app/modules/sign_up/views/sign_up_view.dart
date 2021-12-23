@@ -86,6 +86,9 @@ class SignUpView extends GetView<SignUpController> {
                         ),
                       ],
                     ),
+                    const SizedBox(
+                      height: 24,
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -118,6 +121,9 @@ class SignUpView extends GetView<SignUpController> {
                           ),
                         ),
                       ],
+                    ),
+                    const SizedBox(
+                      height: 24,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

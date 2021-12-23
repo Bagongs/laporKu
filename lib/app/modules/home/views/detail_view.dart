@@ -26,6 +26,7 @@ class DetailView extends GetView<HomeController> {
                       expandedHeight: 200.0,
                       floating: false,
                       pinned: false,
+                      backgroundColor: blueColor,
                       flexibleSpace: FlexibleSpaceBar(
                           centerTitle: true,
                           title: Text("Detail Page", style: whiteTextStyle),
