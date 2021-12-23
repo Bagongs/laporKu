@@ -29,6 +29,8 @@ class SignUpController extends GetxController {
           passC.clear();
           namaC.clear();
           telpC.clear();
+
+          Get.toNamed(Routes.SIGN_IN);
         },
         textConfirm: "OK",
       );

@@ -1,9 +1,7 @@
 import '/app/controllers/auth_controller.dart';
 import '/app/theme/theme.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../controllers/sign_in_controller.dart';
 
 class SignInView extends GetView<SignInController> {

@@ -1,13 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:laporku/app/controllers/auth_controller.dart';
+import 'package:laporku/app/modules/home/controllers/home_controller.dart';
 import '/app/routes/app_pages.dart';
 import '/app/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/laporan_controller.dart';
+class LaporanView extends GetView<HomeController> {
+  final authC = Get.find<AuthController>();
 
-class LaporanView extends GetView<LaporanController> {
-  const LaporanView({Key? key}) : super(key: key);
+  FirebaseAuth auth = FirebaseAuth.instance;
+  LaporanView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -168,14 +173,139 @@ class LaporanView extends GetView<LaporanController> {
         ),
         backgroundColor: blueColor,
       ),
-      body: Center(
-        child: Text(
-          "BELUM ADA LAPORAN",
-          softWrap: true,
-          style: greyTextStyle.copyWith(
-            fontSize: 16,
-          ),
-        ),
+      body: StreamBuilder<QuerySnapshot<Object?>>(
+        stream: controller.streamData(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.active) {
+            var listAllLaporan = snapshot.data!.docs;
+            print(auth.currentUser!.email);
+            return ListView.builder(
+              itemCount: listAllLaporan.length,
+              itemBuilder: (context, index) {
+                if ("${(listAllLaporan[index].data() as Map<String, dynamic>)["email"]}" ==
+                    auth.currentUser!.email) {
+                  var ada = 0;
+                  return SafeArea(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: defaultMargin,
+                        vertical: defaultSmallMargin,
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          Get.toNamed(Routes.DETAIL);
+                        },
+                        child: Card(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ClipRRect(
+                                borderRadius:
+                                    BorderRadius.circular(defaultRadius),
+                                child: Image.asset(
+                                  "assets/dummy.jpg",
+                                  height: 180,
+                                  width: 400,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 6.0,
+                              ),
+                              Center(
+                                child: Text(
+                                  "${(listAllLaporan[index].data() as Map<String, dynamic>)["judul"]}",
+                                  style: blackTextStyle.copyWith(
+                                    fontWeight: semiBold,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            const Icon(Icons.account_circle),
+                                            Text(
+                                                "${(listAllLaporan[index].data() as Map<String, dynamic>)["nama"]}"),
+                                          ],
+                                        ),
+                                        Text(
+                                            "${(listAllLaporan[index].data() as Map<String, dynamic>)["date"]}")
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text(
+                                                "${(listAllLaporan[index].data() as Map<String, dynamic>)["up"]}"),
+                                            const Icon(Icons.arrow_circle_up),
+                                            const SizedBox(
+                                              width: 5,
+                                            ),
+                                            const Icon(
+                                              Icons.comment,
+                                              size: 22.5,
+                                            ),
+                                            const SizedBox(
+                                              width: 5,
+                                            ),
+                                            const Icon(
+                                              Icons.share,
+                                              size: 20,
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              "•",
+                                              style: TextStyle(
+                                                color: yellowColor,
+                                                fontSize: 36,
+                                              ),
+                                            ),
+                                            Text(
+                                                "${(listAllLaporan[index].data() as Map<String, dynamic>)["status"]}"),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                }
+                return Center(
+                  child: Text(
+                    "${(listAllLaporan[index].data() as Map<String, dynamic>)["email"]}",
+                    softWrap: true,
+                    style: greyTextStyle.copyWith(
+                      fontSize: 16,
+                    ),
+                  ),
+                );
+              },
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
       ),
     );
   }

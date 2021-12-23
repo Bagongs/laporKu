@@ -166,6 +166,7 @@ class FormLaporanView extends GetView<FormLaporanController> {
                                       Get.arguments.toString(),
                                       datetime,
                                       0,
+                                      auth.currentUser!.email,
                                     );
                                   },
                                   child: const Text("Laporkan")),

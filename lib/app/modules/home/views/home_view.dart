@@ -4,9 +4,7 @@ import '/app/modules/profile/views/profile_view.dart';
 import '/app/theme/theme.dart';
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -19,7 +17,7 @@ class HomeView extends GetView<HomeController> {
     {
       "label": "Laporanku",
       "icon": Icons.list,
-      "fragment": const LaporanView(),
+      "fragment": LaporanView(),
     },
     {
       "label": "Profile",

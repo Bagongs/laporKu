@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
-
 import 'package:laporku/app/modules/reset_password/bindings/reset_password_binding.dart';
 import 'package:laporku/app/modules/reset_password/views/reset_password_view.dart';
-
 import '/app/modules/form_laporan/bindings/form_laporan_binding.dart';
 import '/app/modules/form_laporan/views/form_laporan_view.dart';
 import '/app/modules/home/bindings/home_binding.dart';
@@ -61,7 +59,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.LAPORAN,
-      page: () => const LaporanView(),
+      page: () => LaporanView(),
       binding: LaporanBinding(),
     ),
     GetPage(
