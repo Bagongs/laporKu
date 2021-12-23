@@ -53,7 +53,7 @@ class MainView extends GetView<HomeController> {
                     ),
                     child: InkWell(
                       onTap: () {
-                        Get.toNamed(Routes.DETAIL);
+                        Get.toNamed(Routes.DETAIL, arguments: index);
                       },
                       child: Card(
                         child: Column(
