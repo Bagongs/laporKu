@@ -5,6 +5,8 @@ class HomeController extends GetxController {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   int currentIndex = 0;
 
+  var laporan = 0;
+
   set changeCurrentIndex(int val) {
     currentIndex = val;
     update();

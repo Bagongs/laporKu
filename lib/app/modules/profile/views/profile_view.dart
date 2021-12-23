@@ -1,23 +1,20 @@
-import 'dart:io';
-
-import 'package:image_picker/image_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:laporku/app/modules/home/controllers/home_controller.dart';
 import 'package:laporku/app/routes/app_pages.dart';
-
 import '/app/controllers/auth_controller.dart';
 import '/app/theme/theme.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
-import '../controllers/profile_controller.dart';
-
-class ProfileView extends GetView<ProfileController> {
-  final auth = Get.find<AuthController>();
+class ProfileView extends GetView<HomeController> {
+  final authC = Get.find<AuthController>();
+  FirebaseAuth auth = FirebaseAuth.instance;
 
   ProfileView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print(controller.laporan.toString());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -46,7 +43,7 @@ class ProfileView extends GetView<ProfileController> {
                         ),
                       ),
                       Text(
-                        "ACCOUNT NAME",
+                        auth.currentUser!.email.toString(),
                         style: whiteTextStyle.copyWith(
                           fontSize: 24,
                           fontWeight: medium,
@@ -77,7 +74,7 @@ class ProfileView extends GetView<ProfileController> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "0",
+                          controller.laporan.toString(),
                           style: blueTextstyle.copyWith(
                             fontSize: 30,
                             fontWeight: bold,
@@ -111,7 +108,7 @@ class ProfileView extends GetView<ProfileController> {
                   title: const Text("Log Out"),
                   leading: const Icon(Icons.logout),
                   onTap: () {
-                    auth.logOut();
+                    authC.logOut();
                   },
                 ),
                 ListTile(

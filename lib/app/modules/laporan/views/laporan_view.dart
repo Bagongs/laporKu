@@ -184,7 +184,9 @@ class LaporanView extends GetView<HomeController> {
               itemBuilder: (context, index) {
                 if ("${(listAllLaporan[index].data() as Map<String, dynamic>)["email"]}" ==
                     auth.currentUser!.email) {
-                  var ada = 0;
+                  print(controller.laporan);
+                  controller.laporan = index;
+                  print(controller.laporan);
                   return SafeArea(
                     child: Padding(
                       padding: EdgeInsets.symmetric(
