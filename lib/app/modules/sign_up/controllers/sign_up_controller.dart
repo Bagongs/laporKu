@@ -9,6 +9,8 @@ class SignUpController extends GetxController {
   TextEditingController namaC = TextEditingController();
   TextEditingController telpC = TextEditingController();
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+  var isPassword = true.obs;
+  void changeVisible() => isPassword.value = !isPassword.value;
 
   void addUser(String email, String pass, String nama, String telp) async {
     CollectionReference user = firestore.collection("users");

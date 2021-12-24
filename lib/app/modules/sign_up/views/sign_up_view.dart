@@ -104,7 +104,7 @@ class SignUpView extends GetView<SignUpController> {
                         ),
                         TextField(
                           controller: controller.telpC,
-                          keyboardType: TextInputType.text,
+                          keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                             hintText: "input your telephone...",
                             border: OutlineInputBorder(
@@ -174,21 +174,33 @@ class SignUpView extends GetView<SignUpController> {
                         const SizedBox(
                           height: 6,
                         ),
-                        TextField(
-                          controller: controller.passC,
-                          obscureText: true,
-                          keyboardType: TextInputType.text,
-                          decoration: InputDecoration(
-                            hintText: "input your password...",
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(18),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.circular(defaultRadius),
-                              borderSide: BorderSide(
-                                color: orangeColor,
-                                width: 2,
+                        Obx(
+                          () => TextField(
+                            controller: controller.passC,
+                            obscureText: controller.isPassword.value,
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  controller.changeVisible();
+                                },
+                                icon: Icon(
+                                  controller.isPassword.value
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
+                                ),
+                              ),
+                              hintText: "input your password...",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(18),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.circular(defaultRadius),
+                                borderSide: BorderSide(
+                                  color: orangeColor,
+                                  width: 2,
+                                ),
                               ),
                             ),
                           ),

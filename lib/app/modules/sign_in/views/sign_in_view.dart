@@ -61,7 +61,7 @@ class SignInView extends GetView<SignInController> {
                     ),
                     TextField(
                       controller: controller.emailC,
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         hintText: "input your email...",
                         border: OutlineInputBorder(
@@ -94,20 +94,32 @@ class SignInView extends GetView<SignInController> {
                     const SizedBox(
                       height: 6,
                     ),
-                    TextField(
-                      controller: controller.passC,
-                      keyboardType: TextInputType.text,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        hintText: "input password...",
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(defaultRadius),
-                          borderSide: BorderSide(
-                            color: orangeColor,
-                            width: 2,
+                    Obx(
+                      () => TextField(
+                        controller: controller.passC,
+                        keyboardType: TextInputType.text,
+                        obscureText: controller.isPassword.value,
+                        decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              controller.changeVisible();
+                            },
+                            icon: Icon(
+                              controller.isPassword.value
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                            ),
+                          ),
+                          hintText: "input password...",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(defaultRadius),
+                            borderSide: BorderSide(
+                              color: orangeColor,
+                              width: 2,
+                            ),
                           ),
                         ),
                       ),

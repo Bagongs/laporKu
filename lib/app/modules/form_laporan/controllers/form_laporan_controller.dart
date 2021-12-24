@@ -29,8 +29,17 @@ class FormLaporanController extends GetxController {
     }
   }
 
-  void add(String judul, String isi, String lokasi, String nama, String telp,
-      String status, String date, int up, String? email) async {
+  void add(
+    String judul,
+    String isi,
+    String lokasi,
+    String nama,
+    String telp,
+    String status,
+    String date,
+    int up,
+    String? email,
+  ) async {
     CollectionReference laporan = firestore.collection("laporan");
 
     try {

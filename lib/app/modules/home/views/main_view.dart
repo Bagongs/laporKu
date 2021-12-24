@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:laporku/app/modules/form_laporan/controllers/form_laporan_controller.dart';
 import 'package:laporku/app/modules/home/controllers/home_controller.dart';
 import '/app/routes/app_pages.dart';
 import '/app/theme/theme.dart';
@@ -6,12 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MainView extends GetView<HomeController> {
-  const MainView({Key? key}) : super(key: key);
-
+  MainView({Key? key}) : super(key: key);
+  var formC = Get.put(FormLaporanController(), permanent: true);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
       appBar: AppBar(
         actions: [
           IconButton(
@@ -23,16 +23,6 @@ class MainView extends GetView<HomeController> {
             ),
           ),
         ],
-        leading: Builder(
-          builder: (context) => IconButton(
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            icon: const Icon(
-              Icons.subject_rounded,
-            ),
-          ),
-        ),
         backgroundColor: blueColor,
         title: const Text("Laporan"),
         centerTitle: true,
@@ -63,7 +53,7 @@ class MainView extends GetView<HomeController> {
                               borderRadius:
                                   BorderRadius.circular(defaultRadius),
                               child: Image.asset(
-                                "assets/dummy.jpg",
+                                'assets/jalan.jpeg',
                                 height: 180,
                                 width: 400,
                                 fit: BoxFit.cover,

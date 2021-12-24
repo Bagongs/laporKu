@@ -116,17 +116,17 @@ class ProfileView extends GetView<HomeController> {
                   },
                 ),
                 ListTile(
-                  title: const Text("Log Out"),
-                  leading: const Icon(Icons.logout),
-                  onTap: () {
-                    authC.logOut();
-                  },
-                ),
-                ListTile(
                   title: const Text("Reset Password"),
                   leading: const Icon(Icons.password_outlined),
                   onTap: () {
                     Get.toNamed(Routes.RESET_PASSWORD);
+                  },
+                ),
+                ListTile(
+                  title: const Text("Log Out"),
+                  leading: const Icon(Icons.logout),
+                  onTap: () {
+                    authC.logOut();
                   },
                 ),
               ],
