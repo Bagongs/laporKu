@@ -69,25 +69,6 @@ class DetailView extends GetView<HomeController> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
-                            children: const [
-                              Icon(Icons.arrow_circle_up),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Icon(
-                                Icons.comment,
-                                size: 22.5,
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Icon(
-                                Icons.share,
-                                size: 20,
-                              ),
-                            ],
-                          ),
-                          Row(
                             children: [
                               Text(
                                 "•",

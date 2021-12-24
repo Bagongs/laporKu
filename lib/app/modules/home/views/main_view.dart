@@ -13,16 +13,6 @@ class MainView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              Get.toNamed(Routes.NOTIFICATION);
-            },
-            icon: const Icon(
-              Icons.notifications,
-            ),
-          ),
-        ],
         backgroundColor: blueColor,
         title: const Text("Laporan"),
         centerTitle: true,
@@ -94,27 +84,6 @@ class MainView extends GetView<HomeController> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Row(
-                                        children: [
-                                          Text(
-                                              "${(listAllLaporan[index].data() as Map<String, dynamic>)["up"]}"),
-                                          const Icon(Icons.arrow_circle_up),
-                                          const SizedBox(
-                                            width: 5,
-                                          ),
-                                          const Icon(
-                                            Icons.comment,
-                                            size: 22.5,
-                                          ),
-                                          const SizedBox(
-                                            width: 5,
-                                          ),
-                                          const Icon(
-                                            Icons.share,
-                                            size: 20,
-                                          ),
-                                        ],
-                                      ),
                                       Row(
                                         children: [
                                           Text(

@@ -18,16 +18,6 @@ class LaporanView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              Get.toNamed(Routes.NOTIFICATION);
-            },
-            icon: const Icon(
-              Icons.notifications,
-            ),
-          ),
-        ],
         backgroundColor: blueColor,
         title: const Text("Laporan"),
         centerTitle: true,
@@ -235,20 +225,9 @@ class LaporanView extends GetView<HomeController> {
                                         children: [
                                           Text(
                                               "${(listAllLaporan[index].data() as Map<String, dynamic>)["up"]}"),
-                                          const Icon(Icons.arrow_circle_up),
-                                          const SizedBox(
-                                            width: 5,
-                                          ),
-                                          const Icon(
-                                            Icons.comment,
-                                            size: 22.5,
-                                          ),
-                                          const SizedBox(
-                                            width: 5,
-                                          ),
-                                          const Icon(
-                                            Icons.share,
-                                            size: 20,
+                                          IconButton(
+                                            icon: Icon(Icons.arrow_circle_up),
+                                            onPressed: () {},
                                           ),
                                         ],
                                       ),
@@ -276,15 +255,7 @@ class LaporanView extends GetView<HomeController> {
                     ),
                   );
                 }
-                return Center(
-                  child: Text(
-                    "${(listAllLaporan[index].data() as Map<String, dynamic>)["email"]}",
-                    softWrap: true,
-                    style: greyTextStyle.copyWith(
-                      fontSize: 16,
-                    ),
-                  ),
-                );
+                return Text("");
               },
             );
           }
